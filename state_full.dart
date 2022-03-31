@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 
 void main() => runApp(MaterialApp(
-      home: NinjaCard(),
+      home: Card(),
     ));
 
-class NinjaCard extends StatefulWidget {
+class Card extends StatefulWidget {
   @override
-  _NinjaCardState createState() => _NinjaCardState();
+  _CardState createState() => _CardState();
 }
 
-class _NinjaCardState extends State<NinjaCard> {
-  int ninjaLevel = 0;
+class _CardState extends State<Card> {
+  int level = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.redAccent[100],
       appBar: AppBar(
-        title: Text('Ninja ID Card'),
+        title: Text('Count App'),
         centerTitle: true,
         backgroundColor: Colors.red,
         elevation: 5,
@@ -25,64 +25,28 @@ class _NinjaCardState extends State<NinjaCard> {
       body: Padding(
         padding: const EdgeInsets.fromLTRB(30.0, 40.0, 30.0, 0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
+            Text(
+              'COUNT',
+              style: TextStyle(
+                color: Colors.black,
+                letterSpacing: 2.0,
+              ),
+            ),
+            SizedBox(height: 10.0),
+            Text(
+              '$level',
+              style: TextStyle(
+                color: Colors.red,
+                fontWeight: FontWeight.bold,
+                fontSize: 28.0,
+                letterSpacing: 2.0,
+              ),
+            ),
             Divider(
               color: Colors.black,
               height: 60.0,
-            ),
-            Text(
-              'NAME',
-              style: TextStyle(
-                color: Colors.black,
-                letterSpacing: 2.0,
-              ),
-            ),
-            SizedBox(height: 10.0),
-            Text(
-              'Chun-Li',
-              style: TextStyle(
-                color: Colors.red,
-                fontWeight: FontWeight.bold,
-                fontSize: 28.0,
-                letterSpacing: 2.0,
-              ),
-            ),
-            SizedBox(height: 30.0),
-            Text(
-              'HOMETOWN',
-              style: TextStyle(
-                color: Colors.black,
-                letterSpacing: 2.0,
-              ),
-            ),
-            SizedBox(height: 10.0),
-            Text(
-              'Beijing, China',
-              style: TextStyle(
-                color: Colors.red,
-                fontWeight: FontWeight.bold,
-                fontSize: 28.0,
-                letterSpacing: 2.0,
-              ),
-            ),
-            SizedBox(height: 30.0),
-            Text(
-              'CURRENT NINJA LEVEL',
-              style: TextStyle(
-                color: Colors.black,
-                letterSpacing: 2.0,
-              ),
-            ),
-            SizedBox(height: 10.0),
-            Text(
-              '$ninjaLevel',
-              style: TextStyle(
-                color: Colors.red,
-                fontWeight: FontWeight.bold,
-                fontSize: 28.0,
-                letterSpacing: 2.0,
-              ),
             ),
             SizedBox(height: 30.0),
             Row(
@@ -93,7 +57,7 @@ class _NinjaCardState extends State<NinjaCard> {
                 ),
                 SizedBox(width: 10.0),
                 Text(
-                  'chun.li@thenetninja.co.uk',
+                  'kovacevic1304@gmail.com',
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: 18.0,
@@ -108,18 +72,18 @@ class _NinjaCardState extends State<NinjaCard> {
                 child: FloatingActionButton(
                   onPressed: () {
                     setState(() {
-                      ninjaLevel += 2;
+                      level -= 1;
                     });
                   },
                   backgroundColor: Colors.redAccent,
-                  child: Icon(Icons.add),
+                  child: Icon(Icons.remove),
                 ),
               ),
               Expanded(
                 child: FloatingActionButton(
                   onPressed: () {
                     setState(() {
-                      ninjaLevel = 0;
+                      level = 0;
                     });
                   },
                   backgroundColor: Colors.grey,
@@ -132,7 +96,7 @@ class _NinjaCardState extends State<NinjaCard> {
                 child: FloatingActionButton(
                   onPressed: () {
                     setState(() {
-                      ninjaLevel += 1;
+                      level += 1;
                     });
                   },
                   backgroundColor: Colors.red,
